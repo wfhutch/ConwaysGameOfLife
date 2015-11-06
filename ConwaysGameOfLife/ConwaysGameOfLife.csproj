@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="ConwaysGameOfLife.cs" />
     <Compile Include="FauxGameOfLife.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
