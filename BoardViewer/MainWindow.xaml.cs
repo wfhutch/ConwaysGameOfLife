@@ -16,7 +16,7 @@ namespace BoardViewer
 
         public MainWindow()
         {
-            currentBoard = new ConwaysGameOfLife.ConwaysGameOfLife();
+            currentBoard = new BoundedWorld();
             dispatcherTimer = new DispatcherTimer();
 
             InitializeComponent();
