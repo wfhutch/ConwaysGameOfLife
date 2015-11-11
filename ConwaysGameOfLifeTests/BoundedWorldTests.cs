@@ -64,5 +64,41 @@ namespace ConwaysGameOfLifeTests
             Assert.AreEqual(expected_number_of_live_cells, actual_number_of_live_cells);
 
         }
+
+        [TestMethod]
+        public void BoundedEnsureThereAreCells()
+        {
+            int width = 80;
+            int height = 80;
+            BoundedWorld instance = new BoundedWorld(width, height);
+
+            int x = 4;
+            int y = 3;
+            instance.AddCell(x, y);
+
+            Assert.AreEqual(1, instance.AliveCellCount());
+        }
+
+        [TestMethod]
+        public void BoundedApplyUnderPopulationToOneCell()
+        {
+            BoundedWorld world = new BoundedWorld(10, 10);
+            world.AddCell(4, 5);
+
+            world.UnderPopulationRule();
+
+            Assert.AreEqual(0, world.AliveCellCount());
+        }
+
+        [TestMethod]
+        public void BoundedEnsureThereAreZeroNeighbors()
+        {
+            BoundedWorld world = new BoundedWorld(10, 10);
+
+            int expected_alive_neighbors = 0;
+            int actual_alive_neighbors = world.AliveNeighborCount(4, 5);
+
+            Assert.AreEqual(expected_alive_neighbors, actual_alive_neighbors);
+        }
     }
 }

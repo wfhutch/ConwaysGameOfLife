@@ -62,5 +62,50 @@ namespace ConwaysGameOfLife
 
             return result;
         }
+
+        public void AddCell(int x, int y)
+        {
+            /* var my_cell = cell[y,x];
+            my_cell.IsAlive = true;
+            */
+            cells[y, x].IsAlive = true;
+        }
+
+        public void UnderPopulationRule()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool IsCellAlive(Cell c)
+        {
+            return c.IsAlive;
+        }
+
+        public int AliveNeighborCount(int x, int y)
+        {
+            Cell above, below, right, left;
+            Cell top_right, top_left, bottom_left, bottom_right;
+            List<Cell> neighbors = new List<Cell>();
+
+            above = cells[y, x - 1];
+            below = cells[y, x + 1];
+            right = cells[y + 1, x];
+            left = cells[y - 1, x];
+            top_right = cells[y + 1, x - 1];
+            top_left = cells[y - 1, x - 1];
+            bottom_right = cells[y + 1, x + 1];
+            bottom_left = cells[y - 1, x + 1];
+
+            neighbors.Add(above);
+            neighbors.Add(below);
+            neighbors.Add(right);
+            neighbors.Add(left);
+            neighbors.Add(top_right);
+            neighbors.Add(top_left);
+            neighbors.Add(bottom_right);
+            neighbors.Add(bottom_left);
+
+            return neighbors.FindAll(IsCellAlive).Count;
+        }
     }
 }
