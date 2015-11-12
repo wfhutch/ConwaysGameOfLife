@@ -1,6 +1,10 @@
 # ConwaysGameOfLife
 Exercise for Cohort Juniper (10)
 
+#####This repo contains the in-class implementation
+
+
+
 
 
 # Instructions
