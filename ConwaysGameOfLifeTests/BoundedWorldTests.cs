@@ -86,6 +86,7 @@ namespace ConwaysGameOfLifeTests
             world.AddCell(4, 5);
 
             world.UnderPopulationRule();
+            world.Tick();
 
             Assert.AreEqual(0, world.AliveCellCount());
         }
@@ -99,6 +100,16 @@ namespace ConwaysGameOfLifeTests
             int actual_alive_neighbors = world.AliveNeighborCount(4, 5);
 
             Assert.AreEqual(expected_alive_neighbors, actual_alive_neighbors);
+        }
+
+        [TestMethod]
+        public void BoundedEnsureEdgeCellsHaveCorrectNeigbors()
+        {
+            BoundedWorld world = new BoundedWorld(10, 10);
+
+            List<Cell> neighbors = world.GetNeighbors(0, 0);
+
+            Assert.AreEqual(3, neighbors.Count);
         }
     }
 }
